@@ -1,0 +1,12 @@
+diff -urNp pion-net-4.0.5/common/include/pion/PionLogger.hpp fixed/common/include/pion/PionLogger.hpp
+--- pion-net-4.0.5/common/include/pion/PionLogger.hpp	2011-03-21 20:31:50.000000000 +0100
++++ fixed/common/include/pion/PionLogger.hpp	2011-07-23 15:14:04.000000000 +0200
+@@ -181,6 +181,8 @@
+ 	// Logging is disabled -> add do-nothing stubs for logging
+ 	namespace pion {
+ 		typedef int		PionLogger;
++		struct PionLogAppender {virtual void PionLogAppenderDummyFunction() {}};	// must contain a virtual function
++		typedef PionLogAppender*	PionLogAppenderPtr;
+ 	}
+ 
+ 	#define PION_LOG_CONFIG_BASIC	{}
